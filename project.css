@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+body{
+    font-family: 'Jost', sans-serif;
+    background-color: #000000;
+}
+
+body main{
+    background-color: #172331;
+}
+
+main h1{
+    font-size: calc(4rem + 2vw);
+    color:#FFFFFF;
+}
+
+body #simon{
+    background-color: #5B728C;
+    width: calc(275px + 15vw);
+    height: calc(275px + 15vw);
+}
+
+#ring-green,#ring-red,#ring-yellow,#ring-blue{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+}
