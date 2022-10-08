@@ -695,6 +695,22 @@ video {
   border-radius: 1rem;
 }
 
+.rounded-tl-full {
+  border-top-left-radius: 9999px;
+}
+
+.rounded-tr-full {
+  border-top-right-radius: 9999px;
+}
+
+.rounded-bl-full {
+  border-bottom-left-radius: 9999px;
+}
+
+.rounded-br-full {
+  border-bottom-right-radius: 9999px;
+}
+
 .border {
   border-width: 1px;
 }
