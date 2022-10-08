@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable = no">
     <title>SimonsGame</title>
-    <!--Font-->
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <!--CSS-->
     <link rel="Stylesheet" href="output.css">
     <link rel="Stylesheet" href="project.css">
@@ -18,13 +16,13 @@
 
 <body class="flex items-center justify-center h-screen w-screen">
     <main class="rounded-xl p-10 flex items-center justify-center text-center flex-col h-screen w-screen">
-        <h1 class="font-bold leading-none mb-6">Simon</h1>
-        <div class="relative" id="simon">
+        <h1 class="font-bold leading-none mb-8">Simon</h1>
+        <div class="relative rounded-full outline outline-[12px] outline-gray-600" id="simon">
             <div class="bg-lime-500 top-0 left-0 rounded-tl-full" id="ring-green"></div>
             <div class="bg-rose-500 top-0 right-0 rounded-tr-full" id="ring-red"></div>
             <div class="bg-yellow-500 bottom-0 left-0 rounded-bl-full" id="ring-yellow"></div>
             <div class="bg-cyan-500 bottom-0 right-0 rounded-br-full" id="ring-blue"></div>
-            <div class="" id="cutout"></div>
+            <!-- <div class="w-1/2 h-1/2 absolute top-1/4 left-1/4 bg-gray-600 rounded-full" id="cutout"></div> -->
         </div>
     </main>
 </body>

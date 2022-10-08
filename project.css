@@ -14,14 +14,25 @@ main h1{
     color:#FFFFFF;
 }
 
-body #simon{
-    background-color: #5B728C;
+#simon{
+    box-shadow:0 0 30px #fff;
     width: calc(275px + 15vw);
     height: calc(275px + 15vw);
 }
 
 #ring-green,#ring-red,#ring-yellow,#ring-blue{
+    cursor:pointer;
+    box-shadow: inset 0 0 20px #00000077;
     position: absolute;
     width: 50%;
     height: 50%;
+    transition: 0.4s;
+}
+
+#ring-green:hover,#ring-red:hover,#ring-yellow:hover,#ring-blue:hover{
+    box-shadow: inset 0 0 30px rgb(255, 255, 255);
+}
+
+.activated{
+    box-shadow: inset 0 0 30px rgb(255, 255, 255);
 }
