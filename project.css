@@ -21,6 +21,7 @@ main h1{
 }
 
 #ring-green,#ring-red,#ring-yellow,#ring-blue{
+    font-size: 0;
     cursor:pointer;
     box-shadow: inset 0 0 20px #00000077;
     position: absolute;
@@ -35,4 +36,5 @@ main h1{
 
 .activated{
     box-shadow: inset 0 0 30px rgb(255, 255, 255);
+    background-color: #000000;
 }
