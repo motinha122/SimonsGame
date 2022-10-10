@@ -1,4 +1,4 @@
-let simonButtons = document.querySelectorAll(".button");
+const simonButtons = document.querySelectorAll(".button");
 
 simonButtons.forEach(button => {
     button.addEventListener("click", function () {
@@ -26,37 +26,39 @@ class Colors {
         console.log(this.numbers);
     }
 
-    addclass(number) {
+    buttonBlink(number) {
         simonButtons[number].classList.add("activated");
+        console.log(simonButtons[number]);
         setTimeout(() => {
             simonButtons[number].classList.remove("activated");
-        },200);
+        },600);
     }
 
     simonDisplay() {
         let Array = this.numbers;
         for (let i = 0; i < Array.length; i++) {
-            switch (Array) {
+            switch (Array[i]) {
                 case 0:
                     setTimeout(()=>{
-                        simonButtons[i].addclass(0);
-                    },(i+1)*600); break;
+                        this.buttonBlink(0);
+                    },(i+1)*800); break;
                 case 1:
                     setTimeout(()=>{
-                        simonButtons[i].addclass(1);
-                    },(i+1)*600); break;
+                        this.buttonBlink(1);
+                    },(i+1)*800); break;
                 case 2:
                     setTimeout(()=>{
-                        simonButtons[i].addclass(2);
-                    },(i+1)*600); break;
+                        this.buttonBlink(2);
+                    },(i+1)*800); break;
                 case 3:
                     setTimeout(()=>{
-                        simonButtons[i].addclass(3);
-                    },(i+1)*600); break;
+                        this.buttonBlink(3);
+                    },(i+1)*800); break;
             }
         }
     }
     
+
 }
 
 let cpu = new Colors();
