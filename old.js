@@ -29,3 +29,29 @@ for(i = 0; i < 5; i++){
     console.log(cpuColors);
 }
 
+compare(simon) {
+    let arrayCpu = simon.values();
+    let currentSize = 0;
+    for (let i = 0; i < this.numbers.length; i++) {
+        if(currentSize < this.numbers.length){
+            currentSize++;            
+            if(arrayCpu.length != 0){            
+                if (arrayCpu[i] == this.numbers[i]) {
+                    startButton.textContent = "Right!";
+                    setTimeout(() => { startButton.textContent = "Next Move"; }, 1000);
+                }
+                else {
+                    startButton.textContent = "Wrong!";
+                    this.reset();
+                    simon.reset();
+                    console.log(simon.values());
+                    setTimeout(() => { startButton.textContent = "Game Over!"; }, 1000);
+                    setTimeout(() => { startButton.textContent = "Start"; }, 2000);
+                }
+            }
+        }else{
+            arrayCpu.generateRandom();
+            startButton.textContent = "Level finished";
+        }
+    }
+}
