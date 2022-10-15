@@ -65,22 +65,40 @@ class Colors {
         this.simonDisplay();
     }
 
-    compare(simon,i) {
+    compare(simon, i) {
         let arrayCpu = simon.values();
-
+        
         if (arrayCpu[i] == this.numbers[i]) {
             startButton.textContent = "Right!";
-            setTimeout(() => { startButton.textContent = "Next Move"; }, 1000);
+            if(i != arrayCpu.length - 1){
+                setTimeout(() => { startButton.textContent = "Next Move"; }, 1000);
+            }
+            else {
+                setTimeout(() => { startButton.textContent = "Next Level"; }, 1000);
+            }
         }
 
         else {
             startButton.textContent = "Wrong!";
-            this.reset();
-            simon.reset();
-            console.log(simon.values());
             setTimeout(() => { startButton.textContent = "Game Over!"; }, 1000);
-            setTimeout(() => { startButton.textContent = "Start"; }, 2000);
+            return false;
         }
+    }
+
+    nextLevel(){
+        this.generateRandom();
+        this.simonDisplay();
+    }
+
+    running(simon) {
+        let arrayCpu = simon.values();
+        for(let i = 0; i < arrayCpu.length; i++){
+            this.compare(simon,i);
+            if(this.compare(simon,i) == false){
+                break;
+            }
+        }
+        simon.nextLevel();
     }
 
     reset() {
@@ -98,7 +116,7 @@ function clickableColors() {
         button.addEventListener("click", function () {
             player.addplayerNumber(this.innerText);
             console.log(this.innerText);
-/*             player.compare(cpu); */
+            /*             player.compare(cpu); */
         })
     });
 }

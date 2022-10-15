@@ -19,6 +19,24 @@ console.log(a);
 a = "batata"
 console.log(a);
 
+compare(simon,i) {
+    let arrayCpu = simon.values();
+
+    if (arrayCpu[i] == this.numbers[i]) {
+        startButton.textContent = "Right!";
+        setTimeout(() => { startButton.textContent = "Next Move"; }, 1000);
+    }
+
+    else {
+        startButton.textContent = "Wrong!";
+        this.reset();
+        simon.reset();
+        console.log(simon.values());
+        setTimeout(() => { startButton.textContent = "Game Over!"; }, 1000);
+        setTimeout(() => { startButton.textContent = "Start"; }, 2000);
+    }
+}
+
 /* let simonButtons = document.querySelectorAll(".button");
 
 simonButtons.forEach(button => {
