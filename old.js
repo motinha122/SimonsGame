@@ -1,4 +1,25 @@
-let simonButtons = document.querySelectorAll(".button");
+class Car{
+    constructor(model,quantity){
+        this.model = model;
+        this.quantity = quantity;
+    }
+}
+
+let carList = ["Saveiro","Gol","Uno","Corsa","Parati"];
+let carQtd = [2000,5465,3405,4566,5555];
+
+let cars = new Array(carList.length);
+
+for(let i = 0; i < carList.length; i++){
+    cars[i] = new Car(carList[i],carQtd[i]);
+}
+
+let a = 1829;
+console.log(a);
+a = "batata"
+console.log(a);
+
+/* let simonButtons = document.querySelectorAll(".button");
 
 simonButtons.forEach(button => {
     button.addEventListener("click",function(){
@@ -54,4 +75,4 @@ compare(simon) {
             startButton.textContent = "Level finished";
         }
     }
-}
+} */

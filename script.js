@@ -6,6 +6,10 @@ class Colors {
         this.numbers = [];
     }
 
+    values() {
+        return this.numbers;
+    }
+
     addplayerNumber(num) {
         this.numbers.push(num);
     }
@@ -19,10 +23,6 @@ class Colors {
         for (let i = 0; i < 4; i++) {
             this.generateRandom();
         }
-    }
-
-    values() {
-        return this.numbers;
     }
 
     buttonBlink(number) {
@@ -65,13 +65,14 @@ class Colors {
         this.simonDisplay();
     }
 
-    compare(simon) {
+    compare(simon,i) {
         let arrayCpu = simon.values();
 
         if (arrayCpu[i] == this.numbers[i]) {
             startButton.textContent = "Right!";
             setTimeout(() => { startButton.textContent = "Next Move"; }, 1000);
         }
+
         else {
             startButton.textContent = "Wrong!";
             this.reset();
@@ -97,7 +98,7 @@ function clickableColors() {
         button.addEventListener("click", function () {
             player.addplayerNumber(this.innerText);
             console.log(this.innerText);
-            player.compare(cpu);
+/*             player.compare(cpu); */
         })
     });
 }
