@@ -19,7 +19,7 @@ console.log(a);
 a = "batata"
 console.log(a);
 
-compare(simon,i) {
+/* compare(simon,i) {
     let arrayCpu = simon.values();
 
     if (arrayCpu[i] == this.numbers[i]) {
@@ -36,7 +36,7 @@ compare(simon,i) {
         setTimeout(() => { startButton.textContent = "Start"; }, 2000);
     }
 }
-
+ */
 /* let simonButtons = document.querySelectorAll(".button");
 
 simonButtons.forEach(button => {

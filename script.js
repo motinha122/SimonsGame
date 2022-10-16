@@ -27,13 +27,13 @@ class Colors {
 
     buttonBlink(number) {
         simonButtons[number].classList.add("activated");
-        console.log(simonButtons[number].innerText);
+        console.log("Button: " + simonButtons[number].innerText);
         setTimeout(() => {
             simonButtons[number].classList.remove("activated");
         }, 500);
     }
 
-    simonDisplay() {
+    start() {
         let count = 0;
         for (let i = 0; i < this.numbers.length; i++) {
             switch (this.numbers[i]) {
@@ -56,74 +56,76 @@ class Colors {
             }
             count++;
         }
-        setTimeout(() => { startButton.textContent = "Your Turn"; }, (count + 1) * 700);
-    }
-
-    start() {
-        setTimeout(() => { startButton.textContent = ""; }, 300);
-        this.initialColors();
-        this.simonDisplay();
+        setTimeout(() => {
+            startButton.textContent = "Your Turn";
+        }, (count + 1) * 700);
     }
 
     compare(simon, i) {
         let arrayCpu = simon.values();
-        
+        console.log("Simon: " + arrayCpu[i] + " - Player: " + this.numbers[i]);
         if (arrayCpu[i] == this.numbers[i]) {
             startButton.textContent = "Right!";
-            if(i != arrayCpu.length - 1){
+            if (i != arrayCpu.length - 1) {
                 setTimeout(() => { startButton.textContent = "Next Move"; }, 1000);
             }
             else {
                 setTimeout(() => { startButton.textContent = "Next Level"; }, 1000);
+                simon.nextLevel();
             }
         }
 
         else {
             startButton.textContent = "Wrong!";
             setTimeout(() => { startButton.textContent = "Game Over!"; }, 1000);
-            return false;
+            this.lose(simon);
         }
     }
 
-    nextLevel(){
+    nextLevel() {
+        index = 0;
         this.generateRandom();
-        this.simonDisplay();
+        console.log(index);
+        this.start();
     }
 
-    running(simon) {
-        let arrayCpu = simon.values();
-        for(let i = 0; i < arrayCpu.length; i++){
-            this.compare(simon,i);
-            if(this.compare(simon,i) == false){
-                break;
-            }
-        }
-        simon.nextLevel();
+    lose(simon) {
+        index = 0;
+        simon.reset();
+        this.reset();
+        simon.generateRandom();
+        /*        simon.initialColors();  */
+        startButton.textContent = "Start";
     }
 
     reset() {
-        startButton.textContent = "Start";
         this.numbers = [];
     }
-
 }
 
 let cpu = new Colors();
 let player = new Colors();
+let index = 0;
 
-function clickableColors() {
-    simonButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            player.addplayerNumber(this.innerText);
-            console.log(this.innerText);
-            /*             player.compare(cpu); */
-        })
-    });
-}
+/* cpu.initialColors(); */
+cpu.generateRandom();
+/* function lose(){
+    cpu.reset();
+    player.reset();
+    index = 0;
+    cpu.start();
+} */
+
+simonButtons.forEach(button => {
+    button.addEventListener("click", function () {
+        player.addplayerNumber(this.innerText);
+        console.log("clicked button: " + this.innerText);
+        console.log("index: " + index);
+        player.compare(cpu, index);
+        index++;
+    })
+});
 
 function startGame() {
-    /*     cpu.reset();
-        player.reset(); */
     cpu.start();
-    clickableColors();
 }
